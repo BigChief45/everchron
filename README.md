@@ -63,3 +63,69 @@ flatten(arr);
 // => [1, 2, 3, 4, 5];
 
 ```
+
+## Map
+
+You might know about [map](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/map) method, let's implement your own `map` one.
+
+`map` should function like `map` does:
+
+```js
+var map = require('./') // <- this is the file you make;
+
+var numbers = [1, 2, 3];
+
+var doubles = map(numbers, function(number) {
+  return number * 2;
+});
+
+console.log(doubles); // [2, 4, 6]
+
+```
+
+More info: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+
+## Value
+
+Here's the basic usage of the file that you'll be creating:
+
+```js
+var value = require('./') // <- this is the file you make;
+
+var scalar = 'foo';
+var fn = function() { return 'bar'; };
+var fnTwice = function() {
+  return fn;
+};
+var fnThrice = function() {
+  return fnTwice;
+};
+
+var whoa = function() {
+  return function() {
+    return function() {
+      return function() {
+        return function() {
+          return function() {
+            return function() {
+              return function() {
+                return function() {
+                  return 'hi';
+                };
+              };
+            };
+          };
+        };
+      };
+    };
+  };
+};
+
+value(scalar);   // should be      'foo'
+value(fn);       // should be      'bar'
+value(fnTwice);  // should also be 'bar'
+value(fnThrice); // should also be 'bar'
+
+value(whoa);     // should be      'hi'
+
+```
